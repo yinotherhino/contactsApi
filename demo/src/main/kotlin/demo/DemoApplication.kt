@@ -54,9 +54,9 @@ class MessageResource(val service: ContactService) {
 
 	@PostMapping("/")
 	fun post(@RequestBody contact: Contact):ResponseEntity<Contact> {
-		val contact = service.post(contact)
+		val newContact = service.post(contact)
 		val statusCode = HttpStatus.CREATED
-		return ResponseEntity(contact, statusCode)
+		return ResponseEntity(newContact, statusCode)
 	}
 
 	@DeleteMapping("/{id}")
